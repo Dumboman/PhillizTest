@@ -1,0 +1,254 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: rgb(213, 199, 188);
+  font-family: Arial, sans-serif;
+  width: device-width;
+  padding-top: 150px;
+}
+
+/* Header Menu */
+.header-menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 95%;
+  max-width: 1100px;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 16px 20px;
+  border-radius: 20px;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  font-weight: bold;
+  flex-wrap: wrap;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease-in-out;
+}
+
+/* Logo Container */
+.logo-container {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+/* Logo Image */
+.c-logo {
+  width: 50px;
+  height: auto;
+  margin-right: 12px; /* Nice spacing between logo and text */
+  position: relative;
+  animation: slideUp 0.8s ease-out forwards;
+}
+
+/* Company Name */
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+  line-height: 1;
+}
+
+/* Navigation */
+.header-menu nav {
+  margin-left: auto;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Animated Slide In for Nav Items */
+nav ul li {
+  position: relative;
+  opacity: 0;
+  transform: translateY(-10px);
+  animation: slideIn 1s forwards ease-out;
+}
+
+nav ul li:nth-child(1) { animation-delay: 0.2s; }
+nav ul li:nth-child(2) { animation-delay: 0.4s; }
+nav ul li:nth-child(3) { animation-delay: 0.6s; }
+nav ul li:nth-child(4) { animation-delay: 0.8s; }
+nav ul li:nth-child(5) { animation-delay: 1s; }
+
+/* Nav Link Styles */
+nav ul li a {
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+  color: black;
+  font-family: Roboto, sans-serif;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: background 0.3s ease-in-out, color 0.3s, transform 0.3s;
+  display: inline-block;
+}
+
+nav ul li a:hover {
+  background: rgb(90, 87, 81);
+  color: white;
+  animation: bounce 0.4s ease-in-out;
+}
+
+/* Dropdown Menu */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  list-style: none;
+  width: 150px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  z-index: 10;
+  overflow: hidden;
+  margin-top: 5px;
+}
+
+.dropdown a {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Arrow Animation */
+.arrow {
+  font-size: 12px;
+  transition: transform 0.3s ease;
+}
+
+.dropdown:hover .arrow {
+  transform: rotate(180deg);
+}
+
+/* Dropdown Hover */
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown-menu li a {
+  display: block;
+  padding: 8px;
+  font-size: 14px;
+  color: black;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.dropdown-menu li a:hover {
+  background: rgb(73, 73, 74);
+  color: white;
+}
+
+/* Animations */
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .header-menu {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 12px;
+  }
+
+  nav {
+    margin-left: 0;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  nav ul {
+    flex-wrap: wrap;
+    gap: 10px;
+    font-size: 0.9rem;
+  }
+
+  nav ul li {
+    flex: 1 1 auto;
+  }
+
+  .dropdown-menu {
+    position: static;
+    margin-top: 0;
+    box-shadow: none;
+  }
+
+  .dropdown:hover .arrow {
+    transform: none;
+  }
+}
+
+@media (min-width: 1200px) {
+  .header-menu {
+    max-width: 50%;
+  }
+
+  nav ul {
+    font-size: 0.85rem;
+    gap: 10px;
+  }
+}
+
+.ap{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width:min(1000px, 80%); /* Start smaller */
+  height: auto;
+  filter: blur(3px);
+  opacity: 1; /* No fade-in effect */
+  animation: expand 1s ease-in-out forwards;
+}
+/* Keyframes for expansion effect */
+@keyframes expand {
+  from {
+      width: 80%;
+  }
+  to {
+      width: 100%;
+  }
+}
