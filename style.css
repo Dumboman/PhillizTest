@@ -4,7 +4,6 @@ body {
   background-color: rgb(213, 199, 188);
   font-family: Arial, sans-serif;
   width: device-width;
-  padding-top: 150px;
 }
 
 /* Header Menu */
@@ -101,58 +100,101 @@ nav ul li a:hover {
 }
 
 /* Dropdown Menu */
+/* Ensure header doesn't expand */
+.header-menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 95%;
+  max-width: 1100px;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 16px 20px;
+  border-radius: 20px;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  font-weight: bold;
+  flex-wrap: wrap;
+  backdrop-filter: blur(10px);
+  overflow: visible; /* Make sure floating elements show */
+}
+
+/* Basic nav layout */
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Dropdown parent positioned relative */
 .dropdown {
   position: relative;
 }
 
+/* Dropdown menu floats outside the nav flow */
 .dropdown-menu {
   display: none;
   position: absolute;
-  top: 100%;
+  top: 100%; /* directly underneath the Services link */
   left: 0;
-  background: white;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  padding: 10px 0;
+  width: 200px;
+  z-index: 2000;
   list-style: none;
-  width: 150px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  z-index: 10;
-  overflow: hidden;
-  margin-top: 5px;
+  margin: 8px 0 0 0; /* spacing below the Services link */
 }
 
-.dropdown a {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-
-/* Arrow Animation */
-.arrow {
-  font-size: 12px;
-  transition: transform 0.3s ease;
-}
-
-.dropdown:hover .arrow {
-  transform: rotate(180deg);
-}
-
-/* Dropdown Hover */
-.dropdown:hover .dropdown-menu {
-  display: block;
-}
-
+/* Dropdown links */
 .dropdown-menu li a {
   display: block;
-  padding: 8px;
-  font-size: 14px;
-  color: black;
+  padding: 12px 20px;
   text-decoration: none;
-  transition: background 0.3s;
+  color: black;
+  font-size: 14px;
+  transition: background 0.3s, color 0.3s;
 }
 
 .dropdown-menu li a:hover {
   background: rgb(73, 73, 74);
   color: white;
+}
+
+/* Arrow animation */
+.arrow {
+  font-size: 12px;
+  transition: transform 0.3s ease;
+}
+
+/* Arrow rotates when open */
+.dropdown.open .arrow {
+  transform: rotate(180deg);
+}
+
+/* Media query just for cleaner mobile handling */
+@media (max-width: 768px) {
+  nav ul {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  nav ul li {
+    flex: 1 1 auto;
+  }
+
+  .dropdown-menu {
+    left: 0;
+    right: auto;
+    width: 200px;
+  }
 }
 
 /* Animations */
@@ -189,6 +231,7 @@ nav ul li a:hover {
 
 /* Responsive */
 @media (max-width: 768px) {
+  
   .header-menu {
     flex-direction: column;
     align-items: flex-start;
@@ -223,6 +266,7 @@ nav ul li a:hover {
 }
 
 @media (min-width: 1200px) {
+
   .header-menu {
     max-width: 50%;
   }
@@ -233,22 +277,42 @@ nav ul li a:hover {
   }
 }
 
-.ap{
+.apcontainer {
+  position: relative;
+  text-align: center;
+}
+
+.ap {
   display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width:min(1000px, 80%); /* Start smaller */
+  margin: 0 auto;
+  width: min(1000px, 80%);
   height: auto;
   filter: blur(3px);
-  opacity: 1; /* No fade-in effect */
+  padding-top: clamp(0px, calc(1000px - 150vw), 180px);
+  opacity: 1;
   animation: expand 1s ease-in-out forwards;
+  transition: padding-top 0.2s ease, width 0.5s ease;
 }
+
 /* Keyframes for expansion effect */
 @keyframes expand {
   from {
-      width: 80%;
+    width: 80%;
   }
   to {
-      width: 100%;
+    width: 100%;
   }
+}
+
+.ap-text {
+  position: absolute;
+  top: 50%;
+  left: 70%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: clamp(24px, 5vw, 60px); /* Responsive text size */
+  top: clamp(10%, 60%, 75%); /* Adjusts the text's vertical position dynamically */
+  font-weight: bold;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+  opacity: 1;
 }
