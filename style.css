@@ -341,7 +341,7 @@ nav ul {
 
 .stars {
   margin-bottom: 20px;
-  font-size: clamp(1.5px, 1.5vw, 100px);
+  font-size: clamp(3px, 3vw, 100px);
 }
 
 .checked{
