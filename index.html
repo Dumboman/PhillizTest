@@ -1,92 +1,209 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <script src="Js/Smooth-scoll.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Philliz</title>
-</head>
-<body>
+/* Reset & base */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+  background-color: rgb(213, 199, 188);
+  font-family: Arial, sans-serif;
+}
 
-    <header class="header-menu">
-      <div class="logo-container">
-        <img src="Pictures/Company-logo.png" class="c-logo" width="50" height="50" alt="Company Logo">
-        <div class="logo-cover"></div>
-        <div class="logo">Philliz</div>
-      </div>
-       
-        <nav>
-          <ul>
-            <li><a href="#ap">Home</a></li>
-            <li><a href="#review">Reviews</a></li>
-            <li><a href="#About-us">About Us</a></li>
-            <li class="dropdown">
-                <a href="#Services">Services <span class="arrow">▼</span></a>
-                <ul class="dropdown-menu">
-                    <li><a href="#">Bookkeeping</a></li>
-                    <li><a href="#">Tax Preparation</a></li>
-                    <li><a href="#">Payroll Management</a></li>
-                    <li><a href="#">Financial Reporting</a></li>
-                </ul>
-                <script src="Js/Dropdown.js"></script>
-            </li>
-            <li><a href="#contact">Lets Contact</a></li>
-        </ul>
-    </nav>
-    </header>
-    <div class="apcontainer">
-      <img src="Pictures/Accounting-Picture.jpg" class="ap" id="ap">
-      <div class="ap-text" id="word-slideshow">HTML</div>
-    </div>
-    <script src="Js/Slideshow.js"></script>
-    <script src="Js/Ap-scroll.js"></script>
- 
-   <div class="review-container">
-    <div class="review" id="review">
-      <div class="stars">
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star checked"></span>
-      </div>
-      <p class="review-text">Great customer service!
-        Highly recommend Philliz
-        for business registration.
-      </br>- Ms Lee</p>
-    </div>
-    <div class="review">
-      <div class="stars">
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star checked"></span>
-      </div>
-      <p class="review-text">Philliz is fast and responsive
-        it makes starting a company
-        in Singapore a very smooth process
-      </br>- Mr Tan</p>
-    </div>
-     <div class="review">
-      <div class="stars">
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star checked"></span>
-      </div>
-      <p class="review-text">Super efficient and professional.
-        Philliz made everything easy.
-        I highly recommend them.
-      </br> - Mr Wong
-        
-      </p>
-    </div>
-   </div>
-    
-   
-</body>
-</html>
+/* Header */
+.header-menu {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 95%;
+  max-width: 1100px;
+  padding: 16px 20px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  font-weight: bold;
+}
+
+/* Logo */
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+.c-logo {
+  width: 50px;
+  margin-right: 12px;
+}
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+/* Basic Styles */
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;  /* Align the <li> elements horizontally */
+}
+
+nav ul li {
+  position: relative;
+  margin-right: 20px;
+  transition: transform 0.3s ease;  /* Smooth transition for the bounce effect */
+}
+
+nav ul li a {
+  text-decoration: none;
+  padding: 10px;
+  display: block;
+  color: black;  /* Text color before hover */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* For smooth background color change */
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  min-width: 160px;
+  z-index: 10;
+}
+
+.dropdown-menu li a {
+  padding: 10px;
+  background-color: white;
+  transition: background-color 0.3s ease;
+  display: block;
+}
+
+/* Arrow Rotation */
+.dropdown.open .arrow {
+  transform: rotate(180deg);
+  transition: transform 0.3s ease;
+}
+
+/* Bounce Effect on Hover */
+nav ul li:hover {
+  transform: translateY(-5px);  /* Moves the item up slightly */
+}
+
+nav ul li a:hover {
+  background-color: black;  /* Change background to black on hover */
+  color: white;  /* Change text color to white on hover */
+}
+
+/* When clicked */
+.dropdown-menu li a.clicked {
+  background-color: black;
+  color: white;
+}
+
+
+/* Hero (full‑bleed) */
+.apcontainer {
+  position: relative;
+  width: 100vw;
+  left: 50%;
+  margin-left: -50vw;
+  overflow: hidden;
+}
+.ap {
+  display: block;
+  width: 100%;
+  max-width: none;
+  height: auto;
+  filter: blur(3px);
+  padding-top: clamp(0px, calc(1000px - 150vw), 180px);
+  animation: expand 1s ease-in-out forwards;
+  transition: padding-top 0.2s ease, width 0.5s ease;
+}
+.ap-text {
+  position: absolute;
+  top: clamp(10%, 60%, 75%);
+  left: 70%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: clamp(24px, 5vw, 60px);
+  font-weight: bold;
+  text-shadow: 2px 2px 10px rgba(0,0,0,0.7);
+}
+
+/* Reviews */
+.review-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-top: 5vh;
+}
+.review {
+  background: white;
+  flex: 1 1 clamp(200px, 30vw, 350px);
+  max-width: clamp(250px, 35vw, 400px);
+  min-height: 200px;
+  margin: 15px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 25px;
+  box-shadow: 5px 3px rgb(129,129,129);
+  font-style: italic;
+  font-family: Arial, sans-serif;
+  font-size: clamp(10px, 2vw, 20px);
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .review {
+    margin: 8px 0;
+    min-height: 160px;
+    padding: 16px;
+  }
+}
+
+.stars {
+  margin-bottom: 20px;
+  font-size: clamp(3px, 3vw, 25px);
+  text-align: center;
+}
+.checked {
+  color: orange;
+}
+.review-text {
+  padding: clamp(0px, 2vw, 20px) clamp(0px, 2vw, 30px);
+  line-height: 1.5;
+}
+
+/* Animations */
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes bounce {
+  0%,100% { transform: translateY(0); }
+  50%     { transform: translateY(-5px); }
+}
+@keyframes expand {
+  from { width: 80%; }
+  to   { width: 100%; }
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .header-menu { flex-direction: column; align-items: flex-start; }
+  .header-menu nav ul { flex-wrap: wrap; gap: 10px; font-size: 0.9rem; }
+  .dropdown-menu { position: static; box-shadow: none; }
+  .review-container { flex-direction: column; align-items: center; }
+}
