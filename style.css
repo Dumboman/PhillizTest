@@ -149,9 +149,9 @@ nav ul li a:hover {
 }
 .review {
   background: white;
-  flex: 1 1 clamp(200px, 30vw, 350px);
-  max-width: clamp(250px, 35vw, 400px);
-  min-height: 200px;
+  flex: 1 1 50px; /* simpler, more predictable */
+  max-width: 400px;
+  align-items: center;
   margin: 15px;
   padding: 20px;
   display: flex;
@@ -161,7 +161,7 @@ nav ul li a:hover {
   box-shadow: 5px 3px rgb(129,129,129);
   font-style: italic;
   font-family: Arial, sans-serif;
-  font-size: clamp(10px, 2vw, 20px);
+  font-size: clamp(14px, 2vw, 18px);
   box-sizing: border-box;
 }
 
@@ -184,6 +184,7 @@ nav ul li a:hover {
 .review-text {
   padding: clamp(0px, 2vw, 20px) clamp(0px, 2vw, 30px);
   line-height: 1.5;
+  color: rgb(67, 66, 66);
 }
 
 /* Animations */
