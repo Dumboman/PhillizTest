@@ -40,8 +40,10 @@ body {
   margin-right: 12px;
 }
 .logo {
-  font-size: 22px;
+  font-size: 2.2rem;
   font-weight: bold;
+  text-align: center;
+  font-family: 'Pacifico', cursive;
 }
 
 /* Basic Styles */
@@ -147,23 +149,31 @@ nav ul li a:hover {
   justify-content: center;
   padding-top: 5vh;
 }
+.reviewer {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+  text-align: right;
+  color: #444;
+}
+
 .review {
   background: white;
-  flex: 1 1 50px; /* simpler, more predictable */
+  flex: 1 1 300px; /* let it grow naturally */
   max-width: 400px;
-  align-items: center;
   margin: 15px;
   padding: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   border-radius: 25px;
   box-shadow: 5px 3px rgb(129,129,129);
   font-style: italic;
   font-family: Arial, sans-serif;
   font-size: clamp(14px, 2vw, 18px);
   box-sizing: border-box;
+  height: auto; /* make sure height adjusts */
 }
+
 
 @media (max-width: 768px) {
   .review {
@@ -207,4 +217,84 @@ nav ul li a:hover {
   .header-menu nav ul { flex-wrap: wrap; gap: 10px; font-size: 0.9rem; }
   .dropdown-menu { position: static; box-shadow: none; }
   .review-container { flex-direction: column; align-items: center; }
+} 
+.About-us {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 10%;
+  min-height: 100vh;
+  background-color:rgb(230, 220, 210);
+  color: #36454F
 }
+
+.About-us-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.hero-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-image img {
+  width: 400px;
+  border-radius: 10px;
+}
+
+.About-us-content {
+  flex: 1;
+  max-width: 50%;
+  padding-left: 40px;
+}
+
+h1 {
+  font-size: 36px;
+  color: #333;
+}
+
+.highlight {
+  text-decoration: underline;
+  text-decoration-color: lightgreen;
+}
+
+p {
+  font-size: 18px;
+  color: #666;
+  line-height: 1.6;
+}
+
+.cta {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 12px 20px;
+  background: #5a54f8;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+@media (max-width: 768px) {
+  .About-us-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-image img {
+    width: 100%;
+    max-width: 350px;
+    margin-bottom: 20px;
+  }
+
+  .About-us-content {
+    max-width: 100%;
+    padding-left: 0;
+  }
+}
+
+
