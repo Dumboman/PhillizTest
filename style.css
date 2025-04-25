@@ -46,6 +46,7 @@ body {
   font-family: 'Pacifico', cursive;
 }
 
+
 /* Basic Styles */
 nav ul {
   list-style-type: none;
@@ -120,6 +121,7 @@ nav ul li a:hover {
   left: 50%;
   margin-left: -50vw;
   overflow: hidden;
+  
 }
 .ap {
   display: block;
@@ -127,19 +129,46 @@ nav ul li a:hover {
   max-width: none;
   height: auto;
   filter: blur(3px);
-  padding-top: clamp(0px, calc(1000px - 150vw), 180px);
+  padding-top: clamp(0px, calc(1000px - 150vw), 280px);
   animation: expand 1s ease-in-out forwards;
   transition: padding-top 0.2s ease, width 0.5s ease;
 }
+
+@media (max-width: 320px) and (min-width: 244px) {
+  .ap {
+    margin-top: 120px;
+    padding-top: 100px; /* or whatever value works best visually */
+  }
+}
+
+@media (max-width: 540px) and (min-width: 320px) {
+  .ap {
+    margin-top: 90px;
+    padding-top: 100px; /* or whatever value works best visually */
+  }
+}
+
 .ap-text {
   position: absolute;
-  top: clamp(10%, 60%, 75%);
+  top: clamp(20%, 40%, 80%);
   left: 70%;
   transform: translate(-50%, -50%);
   color: white;
   font-size: clamp(24px, 5vw, 60px);
   font-weight: bold;
   text-shadow: 2px 2px 10px rgba(0,0,0,0.7);
+}
+
+@media (max-width: 800px) {
+  .ap-text {
+    top: 60%; /* or whatever looks best visually */
+  }
+}
+
+@media (max-width: 700px) {
+  .ap-text {
+    top: 75%; /* or whatever looks best visually */
+  }
 }
 
 /* Reviews */
@@ -297,4 +326,62 @@ p {
   }
 }
 
+.service-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  color: #800020;
+  height: 100px;
+  font-size: clamp(20px, 5vw, 48px); /* min 20px, prefers 5% of viewport width, max 48px */
+}
 
+.service-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Each service box */
+.service-one {
+  flex: 1 1 30%; /* roughly 3 per row on large screens */
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 5px solid black;
+  padding: 50px;
+  margin: 10px;
+  text-align: center;
+  border-radius: 30px;
+}
+
+/* Medium screens: 2 per row */
+@media (max-width: 992px) {
+  .service-one {
+    flex: 1 1 45%;
+  }
+}
+
+/* Small screens: 1 per row */
+@media (max-width: 600px) {
+  .service-one {
+    flex: 1 1 90%;
+  }
+}
+
+.service-one-items {
+  width:80px;
+  height:80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid black;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.service-name {
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+}
