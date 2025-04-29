@@ -1,23 +1,22 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const quoteContainers = document.querySelectorAll('.quote-container');
-
-  const options = {
-      root: null, // Observe the viewport
-      threshold: 0.5, // Trigger when 50% of the element is visible
-  };
-
-  const observer = new IntersectionObserver((entries, observer) => {
-      entries.forEach((entry, index) => {
-          if (entry.isIntersecting) {
-              // Apply staggered delay and make it appear once
-              entry.target.classList.add('visible');
-              entry.target.style.transitionDelay = `${index * 0.2}s`;
-              observer.unobserve(entry.target); // Stop observing after appearing
-          }
+document.addEventListener("DOMContentLoaded", function() {
+    // Intersection Observer
+    const observerOptions = {
+      root: null,
+      threshold: 0.2,
+    };
+  
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
       });
-  }, options);
-
-  quoteContainers.forEach((container) => {
-      observer.observe(container);
+    }, observerOptions);
+  
+    const reviews = document.querySelectorAll('.review');
+    reviews.forEach(review => {
+      observer.observe(review);
+    });
   });
-});
+  
