@@ -1,21 +1,29 @@
-document.getElementById("contactForm").addEventListener("submit", function(event) {
-    event.preventDefault();  // Prevent the form from submitting in the traditional way
+document.addEventListener("DOMContentLoaded", function () {
+    const contactForm = document.getElementById("contactForm");
+    const successMessage = document.getElementById("successMessage");
 
-    // Get form data
-    var formData = new FormData(this);
+    contactForm.addEventListener("submit", function (event) {
+        event.preventDefault(); // Stop default form submission
 
-    // Send data via fetch
-    fetch('connect.php', {
-        method: 'POST',
-        body: formData
-    })
-    .then(response => response.text())  // Wait for the response
-    .then(data => {
-        console.log(data);  // You can check this in your browser's console to see the result
-        document.getElementById("successMessage").style.display = "block";  // Show success message
-        document.getElementById("contactForm").reset();  // Reset form fields
-    })
-    .catch(error => {
-        console.error('Error:', error);
+        const formData = new FormData(contactForm);
+
+        fetch("http://localhost/Philliz%27s%20HTML/connect.php", {
+            method: "POST",
+            body: formData
+        })
+            .then(response => response.text())
+            .then(data => {
+                console.log("✅ Server response:", data);
+
+                // Show message and set success feedback
+                successMessage.textContent = data;
+                successMessage.classList.add("show");
+                contactForm.reset();
+            })
+            .catch(error => {
+                console.error("❌ Fetch error:", error);
+                successMessage.textContent = "❌ Could not connect to the server.";
+                successMessage.classList.add("show");
+            });
     });
 });
