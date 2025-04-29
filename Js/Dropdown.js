@@ -1,24 +1,28 @@
-document.addEventListener("DOMContentLoaded", function () {
-    let dropdown = document.querySelector(".dropdown");
-    let dropdownMenu = document.querySelector(".dropdown-menu");
-
-    dropdown.addEventListener("mouseenter", function () {
-        dropdownMenu.style.display = "block";
+// Toggle the dropdown menu when clicking the services link
+document.querySelector('.services-link').addEventListener('click', function(e) {
+    e.preventDefault();
+    let dropdown = this.parentElement;
+    dropdown.classList.toggle('open');
+    let dropdownMenu = dropdown.querySelector('.dropdown-menu');
+    
+    // Show or hide the dropdown based on current display state
+    if (dropdownMenu.style.display === 'block') {
+      dropdownMenu.style.display = 'none'; // Hide the dropdown
+    } else {
+      dropdownMenu.style.display = 'block'; // Show the dropdown
+    }
+  });
+  
+  // Add click event to each item in the dropdown to change the background
+  document.querySelectorAll('.dropdown-menu li a').forEach(function(item) {
+    item.addEventListener('click', function() {
+      // Remove "clicked" class from previously clicked items
+      document.querySelectorAll('.dropdown-menu li a').forEach(function(link) {
+        link.classList.remove('clicked');
+      });
+  
+      // Add "clicked" class to the item that was clicked
+      this.classList.add('clicked');
     });
-
-    dropdownMenu.addEventListener("mouseenter", function () {
-        dropdownMenu.style.display = "block";
-    });
-
-    dropdown.addEventListener("mouseleave", function () {
-        setTimeout(() => {
-            if (!dropdownMenu.matches(":hover")) {
-                dropdownMenu.style.display = "none";
-            }
-        }, 200); // Adds a slight delay to prevent flickering
-    });
-
-    dropdownMenu.addEventListener("mouseleave", function () {
-        dropdownMenu.style.display = "none";
-    });
-});
+  });
+  
