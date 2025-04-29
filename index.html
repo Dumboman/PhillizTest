@@ -23,15 +23,16 @@
             <li><a href="#review">Reviews</a></li>
             <li><a href="#About-us">About Us</a></li>
             <li class="dropdown">
-              <a href="#" class="services-link">Services <span class="arrow">▼</span></a>
+              <a href="#Services" class="services-link">Services <span class="arrow">▼</span></a>
               <ul class="dropdown-menu">
                 <li><a href="#">Bookkeeping</a></li>
                 <li><a href="#">Tax Preparation</a></li>
                 <li><a href="#">Payroll Management</a></li>
                 <li><a href="#">Financial Reporting</a></li>
+                <li><a href="#">Coporate Secretarial</a></li>
               </ul>
             </li>
-            <li><a href="#contact">Lets Contact</a></li>
+            <li><a href="#Contact-us">Lets Contact</a></li>
         </ul>
       </nav>    
    <script src="Js/Dropdown.js"></script>
@@ -102,32 +103,60 @@
           </div>
       </div>
   </section>    
-  <section class="Services">
-    <h4 class="service-title" >Services</h4>
-    <div class="service-container">
-       <div class="service-one">
-          <img class="service-one-items" src="Pictures/Book-keeping.png">
-          <div class="service-name">Book-Keeping</div>
-          <div class="service-decription">Book-Keeping</div>
-        </div>
-        <div class="service-one">
-          <img class="service-one-items" src="Pictures/Tax prepartion.png">
-          <div class="service-name">Tax Preparation</div>
+</section>    
+
+<section class="Services" id="Services">
+  <h4 class="service-title" >SERVICES</h4>
+  <div class="service-container">
+     <div class="service-one">
+        <img class="service-one-items" src="Pictures/Book-keeping.png">
+        <div class="service-name">Book-Keeping</div>
+        <div class="service-decription">Book-Keeping</div>
       </div>
       <div class="service-one">
-        <img class="service-one-items" src="Pictures/Payroll.png">
-        <div class="service-name">Payroll Management</div>
+        <img class="service-one-items" src="Pictures/Tax prepartion.png">
+        <div class="service-name">Tax Preparation</div>
     </div>
     <div class="service-one">
-      <img class="service-one-items" src="Pictures/Financial reporting.png">
-      <div class="service-name">Financial Reporting</div>
+      <img class="service-one-items" src="Pictures/Payroll.png">
+      <div class="service-name">Payroll Management</div>
   </div>
   <div class="service-one">
-    <img class="service-one-items" src="Pictures/Coporate Secretarial.png">
-    <div class="service-name">Coporate Secretarial</div>
-  </div>
+    <img class="service-one-items" src="Pictures/Financial reporting.png">
+    <div class="service-name">Financial Reporting</div>
+</div>
+<div class="service-one">
+  <img class="service-one-items" src="Pictures/Coporate Secretarial.png">
+  <div class="service-name">Coporate Secretarial</div>
+</div>
 
-    </div>
-  </section>
+  </div>
+</section>
+
+  <section class="Contact-us" id="Contact-us">
+  </section> 
+  <form id="contactForm" method="post">
+    <h2>Get In Touch With Us</h2>
+    
+    <label for="name">Name</label>
+    <input type="text" id="name" placeholder="Your Name" required name="name">
+
+    <label for="email">Email</label>
+    <input type="email" id="email" placeholder="Your Email" required name="email">
+
+    <label for="phone">Phone (Optional)</label>
+    <input type="tel" id="phone" placeholder="Your Phone (Optional)" name="phone">
+
+    <label for="message">Message</label>
+    <textarea id="message" name="message" placeholder="Your Message" rows="4" required></textarea>
+
+    <button type="submit">Send Message</button>
+
+    <!-- Add this for success feedback -->
+    <div id="successMessage" class="success-message">Message Sent Successfully!</div>
+</form>
+<script src="Js/Review.js"></script>
+<script src="Js/Contactus.js"></script>
+
 </body>
 </html>
