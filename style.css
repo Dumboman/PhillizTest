@@ -91,12 +91,14 @@ nav ul li a {
   display: block;
 }
 
-/* Arrow Rotation */
-.dropdown.open .arrow {
-  transform: rotate(180deg);
-  transition: transform 0.3s ease;
-}
-
+.arrow {
+    display: inline-block;
+    transition: transform 0.3s ease;
+  }
+  
+  .dropdown.open .arrow {
+    transform: rotate(180deg);
+  }
 /* Bounce Effect on Hover */
 nav ul li:hover {
   transform: translateY(-5px);  /* Moves the item up slightly */
@@ -232,6 +234,10 @@ nav ul li a:hover {
   opacity: 0;
   transform: translateY(50px); /* Initial hidden state */
   transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.review {
+  scroll-margin-top: 160px; /* adjust based on your header height */
 }
 
 .review.visible {
@@ -421,15 +427,32 @@ p {
   
 }
 
-.contact-us-title {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
-  color: #800020;
-  height: 100px;
-  font-size: clamp(20px, 5vw, 50px); /* min 20px, prefers 5% of viewport width, max 48px */
+.services-toggle {
+  background: none;
+  border: none;
+  font: inherit;
+  cursor: pointer;
+  padding: 0 8px;
 }
+/* rotate arrow when open */
+.dropdown.open .arrow {
+  transform: rotate(180deg);
+}
+
+.Contact-us{
+    padding-top: 3%;
+}
+
+.Contact-us-title {
+    display: flex;
+    justify-content: center;
+    font-family: Oswald;
+    align-items: center;
+    padding: 10px;
+    color: #800020;
+    height: 100px;
+    font-size: clamp(20px, 5vw, 32px); /* min 20px, prefers 5% of viewport width, max 48px */
+  }
   form {
     display: flex;
     flex-direction: column;
