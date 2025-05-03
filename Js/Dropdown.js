@@ -1,28 +1,34 @@
-// Toggle the dropdown menu when clicking the services link
-document.querySelector('.services-link').addEventListener('click', function(e) {
-    e.preventDefault();
-    let dropdown = this.parentElement;
-    dropdown.classList.toggle('open');
-    let dropdownMenu = dropdown.querySelector('.dropdown-menu');
-    
-    // Show or hide the dropdown based on current display state
-    if (dropdownMenu.style.display === 'block') {
-      dropdownMenu.style.display = 'none'; // Hide the dropdown
-    } else {
-      dropdownMenu.style.display = 'block'; // Show the dropdown
-    }
-  });
-  
-  // Add click event to each item in the dropdown to change the background
-  document.querySelectorAll('.dropdown-menu li a').forEach(function(item) {
-    item.addEventListener('click', function() {
-      // Remove "clicked" class from previously clicked items
-      document.querySelectorAll('.dropdown-menu li a').forEach(function(link) {
-        link.classList.remove('clicked');
-      });
-  
-      // Add "clicked" class to the item that was clicked
-      this.classList.add('clicked');
+// grab the dropdown <li> and its arrow toggle
+const dropdown = document.querySelector('.dropdown');
+const arrow = dropdown.querySelector('.arrow');
+const menu  = dropdown.querySelector('.dropdown-menu');
+
+// only intercept clicks on the arrow
+arrow.addEventListener('click', function(e) {
+  e.stopPropagation();           // don’t let this bubble up to the <a>
+  e.preventDefault();            // avoid any default anchor behavior
+
+  // toggle open state
+  dropdown.classList.toggle('open');
+  menu.style.display = dropdown.classList.contains('open')
+    ? 'block'
+    : 'none';
+});
+
+// close menu if you click anywhere else on the page
+document.addEventListener('click', function(e) {
+  if (!dropdown.contains(e.target)) {
+    dropdown.classList.remove('open');
+    menu.style.display = 'none';
+  }
+});
+
+// keep your "clicked" highlight on submenu items
+dropdown.querySelectorAll('.dropdown-menu li a').forEach(item => {
+  item.addEventListener('click', function() {
+    dropdown.querySelectorAll('.dropdown-menu li a').forEach(link => {
+      link.classList.remove('clicked');
     });
+    this.classList.add('clicked');
   });
-  
+});
