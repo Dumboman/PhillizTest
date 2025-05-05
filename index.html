@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="stylesheet.css">
     <script src="Js/Smooth-scoll.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Philliz</title>
@@ -14,10 +14,10 @@
       <div class="logo-container">
         <img src="Pictures/Company-logo.png" class="c-logo" width="50" height="50" alt="Company Logo">
         <div class="logo-cover"></div>
-        <div class="logo" >Philliz</div>
+        <div class="logo" >Philliz</div>       
+  </div>
       </div>
-       
-        <nav>
+      <nav>
           <ul>
             <li><a href="#ap">Home</a></li>
             <li><a href="#review">Reviews</a></li>
@@ -34,12 +34,17 @@
             </li>
             <li><a href="#Contact-us">Lets Contact</a></li>
         </ul>
-      </nav>    
+      </nav>      
+        
    <script src="Js/Dropdown.js"></script>
     </header>
     <div class="apcontainer">
       <img src="Pictures/Accounting-Picture.jpg" class="ap" id="ap">
       <div class="ap-text" id="word-slideshow">HTML</div>
+      <div class="toggle">
+    <span class="lang-label">🌐</span>
+    <input type="checkbox" id="langToggle" onclick="toggleLanguage()" />
+  </div>
     </div>
     <script src="Js/Slideshow.js"></script>
     <script src="Js/Ap-scroll.js"></script>
