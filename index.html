@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="Stylesheet.css">
     <script src="Js/Smooth-scoll.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Philliz</title>
@@ -32,6 +32,7 @@
                 <li><a href="#">Coporate Secretarial</a></li>
               </ul>
             </li>
+             <li><a href="#why-choose-us">Why Choose Us?</a></li>
             <li><a href="#Contact-us">Lets Contact</a></li>
         </ul>
       </nav>      
@@ -40,7 +41,7 @@
     </header>
     <div class="apcontainer">
       <img src="Pictures/Accounting-Picture.jpg" class="ap" id="ap">
-      <div class="ap-text" id="word-slideshow">HTML</div>
+      <div class="ap-text" id="word-slideshow">Your Gateway to Doing Business in Singapore</div>
       <div class="toggle">
     <span class="lang-label">🌐</span>
     <input type="checkbox" id="langToggle" onclick="toggleLanguage()" />
@@ -98,13 +99,15 @@
     <section class="About-us" id="About-us">
       <div class="About-us-container">
           <div class="hero-image">
-              <img src="hero-image.png" alt="Person working on laptop">
+              <img src="Pictures/Oldschool.png" alt="Person working on laptop">
           </div>
           <div class="About-us-content">
               <h4 style="color:#800020 ;">ABOUT US</h4>
-              <h1>Helping businesses <span class="highlight">succeed</span> through the power of video.</h1>
-              <p>Video is the future of business in this digital-focused world. Vidyard uses video to change the way companies connect and communicate. We help organizations of all sizes humanize their communications and personalize their customer experiences.</p>
-              <a href="#" class="cta">Sign Up for Free</a>
+              <h1> We empower global clients to thrive in Singapore through <span class="highlight">expert  guidance</span> & <span class="highlight">strategic advantages</span></h1>
+              <p>We dedicated to supporting foreign investors and businesses seeking a strong, compliant, and tax-efficient presence in one of Asia’s most strategic financial hubs. </br>
+              Our team combines deep local expertise with global business insight, helping international clients navigate Singapore’s pro-business environment, attractive tax incentives, and world-class infrastructure.
+            </p>
+              <a href="#Contact-us" class="cta">Sign Up for Free</a>
           </div>
       </div>
   </section>    
@@ -137,12 +140,66 @@
 
   </div>
 </section>
+ <section class="why-choose-us" id="why-choose-us">
+  <div class="container">
+    <p class="subheading">Our Advantage</p>
+    <h2>Why Choose Us?</h2>
+    <p class="description">
+     We deliver efficient, transparent accounting services tailored to Singapore’s business and regulatory needs.
+    </p>
 
+    <div class="features">
+      <div class="feature-box">
+        <div class="icon">😌</div>
+        <h4>Hassle-Free Market Entry</h4>
+        <p style="padding-bottom: 9%">From company incorporation to opening bank accounts and securing work passes, we streamline your setup process in full compliance with Singapore laws.</p>
+        <button class="btn">Read More</button>
+      </div>
+      <div class="feature-box">
+        <div class="icon">📉</div>
+        <h4>Tax Optimization</h4>
+        <p>Singapore offers a low corporate tax rate, no capital gains tax, and attractive tax exemptions for startups and holding companies. Our tax specialists structure your business to maximize these benefits.</p>
+        <button class="btn" >Read More</button>
+      </div>
+      <div class="feature-box">
+        <div class="icon">📝</div>
+        <h4>Full Regulatory Compliance</h4>
+        <p  style="padding-bottom: 9%">We handle your ACRA filings, GST registration, XBRL reporting, and IRAS submissions — ensuring you're always compliant and audit-ready.</p>
+        <button class="btn">Read More</button>
+      </div>
+      <div class="feature-box">
+        <div class="icon">💻</div>
+        <h4>Tech-Enabled Services</h4>
+        <p  style="padding-bottom: 9%">With our cloud-based systems, you gain secure, real-time access to your financials and documents anytime, anywhere — ideal for remote investors and regional HQs.</p>
+        <button class="btn">Read More</button>
+      </div>
+    </div>
+  </div>
+</section>
+   
   <section class="Contact-us" id="Contact-us">
-  </section> 
+ 
   <form id="contactForm" method="post">
-    <h2 class="Contact-us-title">Get In Touch With Us</h2>
-    
+    <h2 class="Contact-us-title">GET IN TOUCH WITH US</h2>
+     <div class="contact-info-cards">
+      <div class="info-card">
+    <i class="fa fa-phone"></i>
+    <h4>PHONE</h4>
+    <p>+65 98290358 </p>
+  </div>
+    <div class="info-card">
+      <i class="fa fa-envelope"></i>
+      <h4>EMAIL</h4>
+      <p>phillizppl@gmail.com</p>
+    </div>
+   
+    <div class="info-card">
+      <i class="fa fa-map-marker"></i>
+      <h4>LOCATION</h4>
+      <p>3 Upper Aljunied Link, Joo Seng #04-03, Singapore 367901</p>
+    </div>
+  </div>
+</div>
     <label for="name">Name</label>
     <input type="text" id="name" placeholder="Your Name" required name="name">
 
@@ -162,6 +219,10 @@
 </form>
 <script src="Js/Review.js"></script>
 <script src="Js/Contactus.js"></script>
+ </section> 
+ <footer class="footer">
+    <p>&copy; 2025 Zhang Yida. All rights reserved.</p>
+  </footer>
 
 </body>
-</html>
+</html> 
